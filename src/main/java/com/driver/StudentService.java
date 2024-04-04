@@ -41,10 +41,12 @@ public class StudentService {
 
     public void deleteTeacher(String teacher){
         studentRepository.deleteTeacher(teacher);
+
     }
 
     public void deleteAllTeachers(){
         studentRepository.deleteAllTeachers();
+
     }
 
 

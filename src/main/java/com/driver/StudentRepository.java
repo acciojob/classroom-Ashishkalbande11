@@ -60,6 +60,15 @@ public class StudentRepository {
     public void deleteTeacher(String teacher){
         // your code goes here
         teacherMap.remove(teacher);
+
+        List<String> studentsToRemove = teacherStudentMapping.get(teacher);
+        if (studentsToRemove != null) {
+            for (String student : studentsToRemove) {
+                studentMap.remove(student);
+            }
+        }
+
+        // Remove teacher from teacherStudentMapping
         teacherStudentMapping.remove(teacher);
     }
 
@@ -67,5 +76,6 @@ public class StudentRepository {
         // your code goes here
         teacherMap.clear();
         teacherStudentMapping.clear();
+        studentMap.clear();
     }
 }
