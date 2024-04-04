@@ -75,7 +75,18 @@ public class StudentRepository {
     public void deleteAllTeachers(){
         // your code goes here
         teacherMap.clear();
+
+
+        for (Map.Entry<String, List<String>> entry : teacherStudentMapping.entrySet()) {
+            List<String> studentsToRemove = entry.getValue();
+            if (studentsToRemove != null) {
+                for (String student : studentsToRemove) {
+                    studentMap.remove(student);
+                }
+            }
+        }
+
+
         teacherStudentMapping.clear();
-        studentMap.clear();
     }
 }
